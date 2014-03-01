@@ -1,6 +1,6 @@
 #include "usart.h"
  
-#define MY_USART_BUF_SIZE 256
+#define MY_USART_BUF_SIZE 128
 u8 myUSARTRxBuf[MY_USART_BUF_SIZE];     //Ω” ’ª∫≥Â
 u8 myUSARTTxBuf[MY_USART_BUF_SIZE];	 //∑¢ÀÕª∫≥Â
 u8 rxBufHead = 0,rxBufTail = 0;

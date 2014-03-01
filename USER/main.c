@@ -3,8 +3,9 @@
 #include "time.h"
 #include "led.h"
 #include "i2c.h"
-#include "inv_mpu.h"
+//#include "inv_mpu.h"
 #include "communication.h"
+#include "mpu6050.h"
 
 int main(void)
 {
@@ -14,14 +15,14 @@ int main(void)
 	MyUSART_Init(9600);
 	MyI2C_Init();
 	MyLED_Config();
-	while(mpu_init());
+	MPU_Config();
 	while(1)
 	{
-		u8 type;
-		short accel[3];
-		MyCOM_GetData(accel,&type);
-		if(type) MyCOM_SendData(accel,type);
-		Delay_ms(100);
+		long quat[4] = {0xaaaaaaaa,0xbbbbbbbb,0xcccccccc,0xdddddddd};
+		MPU_ReadDMPFifo();
+		MPU_GetQuat(quat);
+		MyCOM_SendData(quat,DATA_TYPE_QUAT);
+		Delay_ms(500);
 		MyLED_Toggle();
 	}
 }

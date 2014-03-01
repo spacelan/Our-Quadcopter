@@ -351,7 +351,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_MD,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\SYSTEM\sys;..\SYSTEM\usart;..\USER;..\STM32F10x_FWLib\inc;..\CORE;..\HARDWARE\led;..\SYSTEM\time;..\SYSTEM\i2c;..\HARDWARE\eMPL</IncludePath>
+              <IncludePath>..\SYSTEM\sys;..\SYSTEM\usart;..\USER;..\STM32F10x_FWLib\inc;..\CORE;..\HARDWARE\led;..\SYSTEM\time;..\SYSTEM\i2c;..\HARDWARE\eMPL;.\communication;.\ErrorAndWorning;.\mpu6050</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -408,14 +408,19 @@
               <FilePath>.\system_stm32f10x.c</FilePath>
             </File>
             <File>
-              <FileName>stm32f10x_conf.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\stm32f10x_conf.h</FilePath>
-            </File>
-            <File>
               <FileName>communication.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\communication.c</FilePath>
+              <FilePath>.\communication\communication.c</FilePath>
+            </File>
+            <File>
+              <FileName>ErrorAndWorning.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\ErrorAndWorning\ErrorAndWorning.c</FilePath>
+            </File>
+            <File>
+              <FileName>mpu6050.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mpu6050\mpu6050.c</FilePath>
             </File>
           </Files>
         </Group>
