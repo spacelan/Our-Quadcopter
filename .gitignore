@@ -216,3 +216,15 @@ pip-log.txt
 OUTPUTANDLISTING/Our-Quadcopter.hex
 USER/Our-Quadcopter.uvgui.Spacelan
 USER/Our-Quadcopter.uvopt
+*.iex
+*.axf
+OUTPUTANDLISTING/Our-Quadcopter.htm
+*.lnp
+*.map
+*.plg
+*.sct
+*.crf
+*.d
+*.o
+*.lst
+*.dep

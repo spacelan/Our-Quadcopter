@@ -3,7 +3,7 @@
 #include "inv_mpu_dmp_motion_driver.h"
 #include "ErrorAndWorning.h"
 #include "communication.h"
-#include "math.h"
+//#include "math.h"
 
 #define q30  1073741824.0f
 
@@ -55,7 +55,7 @@ void MPU_Config(void)
     					) == 0 ? NO_ACTION() : MyError(6);
     dmp_set_fifo_rate(50) == 0 ? NO_ACTION() : MyError(7);
     mpu_set_dmp_state(ENABLE) == 0 ? NO_ACTION() : MyError(8);
-    run_self_test();
+//    run_self_test();
 }
 
 void MPU_ReadDMPFifo(void)

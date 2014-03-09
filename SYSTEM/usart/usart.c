@@ -1,11 +1,11 @@
 #include "usart.h"
+#include "time.h"
  
 #define MY_USART_BUF_SIZE 128
 u8 myUSARTRxBuf[MY_USART_BUF_SIZE];     //接收缓冲
 u8 myUSARTTxBuf[MY_USART_BUF_SIZE];	 //发送缓冲
 u8 rxBufHead = 0,rxBufTail = 0;
 u8 txBufHead = 0,txBufTail = 0;
-
 
 void MyUSART_Init(u32 bound)
 {
@@ -125,15 +125,15 @@ void USART1_IRQHandler(void)
 {
 	if(USART_GetITStatus(USART1,USART_IT_TXE) == SET)
 	{
-		USART_ClearITPendingBit(USART1,USART_IT_TXE);
 		if(MyUSART_GetTxBufSzie() >= 1)
 			MyUSART_SendByte();
 		else
 			USART_ITConfig(USART1, USART_IT_TXE, DISABLE);//队列中没有数据，关闭中断，开启中断在函数MyUSART_Transmit
+		USART_ClearITPendingBit(USART1,USART_IT_TXE);
 	}
 	if(USART_GetITStatus(USART1,USART_IT_RXNE) == SET)
 	{
-		USART_ClearITPendingBit(USART1,USART_IT_RXNE);
 		MyUSART_GetByte();
+		USART_ClearITPendingBit(USART1,USART_IT_RXNE);
 	}
 } 
