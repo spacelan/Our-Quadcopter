@@ -351,7 +351,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_MD,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\SYSTEM\sys;..\SYSTEM\usart;..\USER;..\STM32F10x_FWLib\inc;..\CORE;..\HARDWARE\led;..\SYSTEM\time;..\SYSTEM\i2c;..\HARDWARE\eMPL;.\communication;.\ErrorAndWorning;.\mpu6050</IncludePath>
+              <IncludePath>..\SYSTEM\sys;..\SYSTEM\usart;..\USER;..\STM32F10x_FWLib\inc;..\CORE;..\HARDWARE\led;..\SYSTEM\time;..\SYSTEM\i2c;..\HARDWARE\eMPL;.\communication;.\ErrorAndWorning;.\mpu6050;..\HARDWARE\flash;.\storage</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -422,6 +422,16 @@
               <FileType>1</FileType>
               <FilePath>.\mpu6050\mpu6050.c</FilePath>
             </File>
+            <File>
+              <FileName>stm32f10x_conf.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\stm32f10x_conf.h</FilePath>
+            </File>
+            <File>
+              <FileName>storage.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\storage\storage.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -441,6 +451,11 @@
               <FileName>inv_mpu_dmp_motion_driver.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\HARDWARE\eMPL\inv_mpu_dmp_motion_driver.c</FilePath>
+            </File>
+            <File>
+              <FileName>flash.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\flash\flash.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -506,6 +521,11 @@
               <FileName>misc.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\STM32F10x_FWLib\src\misc.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f10x_flash.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\STM32F10x_FWLib\src\stm32f10x_flash.c</FilePath>
             </File>
           </Files>
         </Group>
