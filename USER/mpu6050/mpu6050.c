@@ -71,3 +71,17 @@ void MPU_GetQuat(long *needQuat)
 	needQuat[2] = quat[2];
 	needQuat[3] = quat[3];
 }
+
+void MPU_GetAccel(short *needAccel)
+{
+	needAccel[0] = accel[0];
+	needAccel[1] = accel[1];
+	needAccel[2] = accel[2];
+}
+
+void MPU_GetGyro(short *needGyro)
+{
+	needGyro[0] = gyro[0];
+	needGyro[1] = gyro[1];
+	needGyro[2] = gyro[2];
+}
