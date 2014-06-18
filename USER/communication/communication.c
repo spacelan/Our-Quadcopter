@@ -9,7 +9,7 @@ enum GET_DATA_STATE
 	NEED_DATA
 };
 
-//DATA_TYPEÖĞ¸÷ÖÖÊı¾İµÄ³¤¶È£¬µ¥Î»×Ö½Ú
+//DATA_TYPEä¸­å„ç§æ•°æ®çš„é•¿åº¦ï¼Œå•ä½å­—èŠ‚
 uint8_t dataLength[129];
 uint8_t cmd;
 uint8_t isDataReady;
@@ -32,11 +32,11 @@ void MyCOM_Init()
 
 /*********************************************************************
 *Function: MyCOM_SendData
-*Description: ·¢ËÍÊı¾İ£¬ÒÔÊı¾İ°ü·½Ê½
-*Description: Êı¾İ°ü¸ñÊ½ 0xaa 0x55 datatype *data
-*Description: ¸ù¾İÊı¾İ´¢´æ·½Ê½£¬Ö±½Ó´«µİÖ¸Õë·¢ËÍ£¬·ÅÆúÒÆÎ»¹¹½¨Êı¾İbufµÄ·½Ê½
-*Input: const void *data ´ı·¢ËÍµÄÊı¾İ
-*Input: uint8_t dataType ´ı·¢ËÍÊı¾İµÄÀàĞÍ
+*Description: å‘é€æ•°æ®ï¼Œä»¥æ•°æ®åŒ…æ–¹å¼
+*Description: æ•°æ®åŒ…æ ¼å¼ 0xaa 0x55 datatype *data
+*Description: æ ¹æ®æ•°æ®å‚¨å­˜æ–¹å¼ï¼Œç›´æ¥ä¼ é€’æŒ‡é’ˆå‘é€ï¼Œæ”¾å¼ƒç§»ä½æ„å»ºæ•°æ®bufçš„æ–¹å¼
+*Input: const void *data å¾…å‘é€çš„æ•°æ®
+*Input: uint8_t dataType å¾…å‘é€æ•°æ®çš„ç±»å‹
 *Output:
 *Return:
 *Others:
@@ -56,11 +56,11 @@ void MyCOM_SendData(const void *data,uint8_t dataType)
 	MyUSART_Transmit((uint8_t*)&crc,2);
 }
 
-//»ñÈ¡Êı¾İ£¬´«½øÀ´µÄÊı¾İÖ¸ÕëÓ¦¸ÃÖ¸ÏòÒ»¸öÁ¬ĞøµÄ16×Ö½Ú¿Õ¼ä
+//è·å–æ•°æ®ï¼Œä¼ è¿›æ¥çš„æ•°æ®æŒ‡é’ˆåº”è¯¥æŒ‡å‘ä¸€ä¸ªè¿ç»­çš„16å­—èŠ‚ç©ºé—´
 /*********************************************************************
 *Function: MyCOM_GetData
-*Description: ½«Êı¾İ´ò°ü·¢ËÍ
-*Description: Êı¾İ°ü¸ñÊ½ 0xaa 0x55 datatype *data
+*Description: å°†æ•°æ®æ‰“åŒ…å‘é€
+*Description: æ•°æ®åŒ…æ ¼å¼ 0xaa 0x55 datatype *data
 *Input: void *data
 *Input: uint8_t *dataType
 *Output:
@@ -140,9 +140,9 @@ uint8_t check(const uint8_t *data,uint8_t length)
 	return bcc;
 }
 
-// ¼ÆËãCRC-16-CCITT¡£
+// è®¡ç®—CRC-16-CCITTã€‚
 // http://www.dzjs.net/html/qianrushixitong/2007/0530/2162.html
-// crcÎªÉÏ´ÎµÄ½á¹û£¬¿ªÊ¼Ê±ÉèÎª0¡£ÓÃÓÚ·Ö¶Î¼ÆËã¡£
+// crcä¸ºä¸Šæ¬¡çš„ç»“æœï¼Œå¼€å§‹æ—¶è®¾ä¸º0ã€‚ç”¨äºåˆ†æ®µè®¡ç®—ã€‚
 uint16_t math_crc16(uint16_t crc,const void * data,uint16_t len)
 {
     const static uint16_t crc_tab[16] =

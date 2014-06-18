@@ -2,6 +2,7 @@
 #define STORAGE_H
 
 #include "sys.h"
+//其实是数据的起始地址
 enum STORAGE_DATA_TYPE
 {
 	STORAGE_DATA_TYPE_HEAD = 0,//2bytes
@@ -19,3 +20,5 @@ void MyStorage_Read(void *data,uint8_t type);
 void MyStorage_Program(void);
 
 #endif
+
+

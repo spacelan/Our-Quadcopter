@@ -73,9 +73,9 @@
             <UserProg2Dos16Mode>0</UserProg2Dos16Mode>
           </BeforeMake>
           <AfterMake>
-            <RunUserProg1>0</RunUserProg1>
+            <RunUserProg1>1</RunUserProg1>
             <RunUserProg2>0</RunUserProg2>
-            <UserProg1Name></UserProg1Name>
+            <UserProg1Name>D:\Keil\ARM\ARMCC\bin\fromelf.exe --bin -o ..\OUTPUTANDLISTING\Our-Quadcopter.bin ..\OUTPUTANDLISTING\Our-Quadcopter.axf</UserProg1Name>
             <UserProg2Name></UserProg2Name>
             <UserProg1Dos16Mode>0</UserProg1Dos16Mode>
             <UserProg2Dos16Mode>0</UserProg2Dos16Mode>
@@ -297,7 +297,7 @@
               </OCR_RVCT3>
               <OCR_RVCT4>
                 <Type>1</Type>
-                <StartAddress>0x8000000</StartAddress>
+                <StartAddress>0x8008000</StartAddress>
                 <Size>0x10000</Size>
               </OCR_RVCT4>
               <OCR_RVCT5>
@@ -431,6 +431,11 @@
               <FileName>storage.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\storage\storage.c</FilePath>
+            </File>
+            <File>
+              <FileName>mix.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mix.c</FilePath>
             </File>
           </Files>
         </Group>

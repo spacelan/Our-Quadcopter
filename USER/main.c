@@ -11,9 +11,10 @@ int main(void)
 	long quat[4];
 	short accel[3],gyro[3];
 	uint8_t CMD = COMMAND_TYPE_SEND_QUAT;
-	SystemInit(); 			 //ϵͳʱ�ӳ�ʼ��Ϊ72M	  SYSCLK_FREQ_72MHz 
-	NVIC_Configuration(); 	 //����NVIC�жϷ���2:2λ��ռ���ȼ���2λ��Ӧ���ȼ�
-	MyTime_Init();	    	 //��ʱ������ʼ��	 
+//	SystemInit(); 			 //系统时钟初始化为72M	  SYSCLK_FREQ_72MHz 
+//	SCB->VTOR = FLASH_BASE | 0x8000; /* Vector Table Relocation in Internal FLASH. */
+	NVIC_Configuration(); 	 //设置NVIC中断分组2:2位抢占优先级，2位响应优先级
+	MyTime_Init();	    	 //延时函数初始化	 
 	MyLED_Config();
 	MyUSART_Init(115200);
 	MyCOM_Init();

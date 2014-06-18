@@ -3,6 +3,8 @@
 #include "inv_mpu_dmp_motion_driver.h"
 #include "ErrorAndWorning.h"
 #include "communication.h"
+#include "mix.h"
+
 //#include "math.h"
 
 #define q30  1073741824.0f
@@ -55,13 +57,16 @@ void MPU_Config(void)
     					) == 0 ? NO_ACTION() : MyError(6);
     dmp_set_fifo_rate(50) == 0 ? NO_ACTION() : MyError(7);
     mpu_set_dmp_state(ENABLE) == 0 ? NO_ACTION() : MyError(8);
-//    run_self_test();
+    run_self_test();
+//	attitude_init();
 }
 
 void MPU_ReadDMPFifo(void)
 {
 	unsigned char more;
     while(dmp_read_fifo(gyro, accel, quat, &timestamp, &sensors, &more) || more) ;
+	
+//	attitude_updateAttitude(quat,accel,gyro,timestamp);
 }
 
 void MPU_GetQuat(long *needQuat)
