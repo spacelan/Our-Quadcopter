@@ -24,6 +24,7 @@ void MyCOM_Init()
 	dataLength[DATA_TYPE_QUAT] = 16;
 	dataLength[DATA_TYPE_ACCEL] = 6;
 	dataLength[DATA_TYPE_GYRO] = 6;
+	dataLength[DATA_TYPE_THROTTLE] = 4;
 	dataLength[DATA_TYPE_COMMAND] = 1;
 	
 	cmd = COMMAND_TYPE_SEND_QUAT;

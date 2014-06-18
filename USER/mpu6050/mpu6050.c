@@ -57,7 +57,7 @@ void MPU_Config(void)
     					) == 0 ? NO_ACTION() : MyError(6);
     dmp_set_fifo_rate(50) == 0 ? NO_ACTION() : MyError(7);
     mpu_set_dmp_state(ENABLE) == 0 ? NO_ACTION() : MyError(8);
-    run_self_test();
+	run_self_test();
 //	attitude_init();
 }
 

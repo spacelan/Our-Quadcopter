@@ -5,10 +5,13 @@
 #include "i2c.h"
 #include "communication.h"
 #include "mpu6050.h"
-
+#include "control.h"
+#include "motor.h"
 int main(void)
 {
 	long quat[4];
+	float target[4] = {1,0,0,0};
+	uint8_t throttle[4];
 	short accel[3],gyro[3];
 	uint8_t CMD = COMMAND_TYPE_SEND_QUAT;
 //	SystemInit(); 			 //系统时钟初始化为72M	  SYSCLK_FREQ_72MHz 
@@ -37,6 +40,7 @@ int main(void)
 			continue;
 		}
 		MPU_ReadDMPFifo();
+		control(target);
 		if((CMD & (uint8_t)COMMAND_TYPE_SEND_QUAT))
 		{
 			MPU_GetQuat(quat);
@@ -51,6 +55,14 @@ int main(void)
 		{
 			MPU_GetGyro(gyro);
 			MyCOM_SendData(gyro,DATA_TYPE_GYRO);	
+		}
+		if((CMD & (uint8_t)COMMAND_TYPE_SEND_THROTTLE))
+		{
+			MyMotor_GetThrottle(MOTOR1,&throttle[0]);
+			MyMotor_GetThrottle(MOTOR2,&throttle[1]);
+			MyMotor_GetThrottle(MOTOR3,&throttle[2]);
+			MyMotor_GetThrottle(MOTOR4,&throttle[3]);
+			MyCOM_SendData(throttle,DATA_TYPE_THROTTLE);	
 		}
 		MyLED_Toggle();
 	}

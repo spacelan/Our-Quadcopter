@@ -3,20 +3,20 @@
 volatile uint32_t currentTime_ms = 0;
 uint64_t timer_us = 0;
 
-//³õÊ¼»¯£¬Ä¬ÈÏ72MHz
+//åˆå§‹åŒ–ï¼Œé»˜è®¤72MHz
 void MyTime_Init(void)
 {
 	currentTime_ms = 0;
-	SysTick_Config(SystemCoreClock / 1000);  //72000 ticks = 1s / 1000 = 1 ms ÖÐ¶ÏÒ»´Î
+	SysTick_Config(SystemCoreClock / 1000);  //72000 ticks = 1s / 1000 = 1 ms ä¸­æ–­ä¸€æ¬¡
 }
 
-//»ñÈ¡µ±Ç°Ê±¼ä£¬µ¥Î»ºÁÃë
+//èŽ·å–å½“å‰æ—¶é—´ï¼Œå•ä½æ¯«ç§’
 uint32_t MyTime_GetCurrentTime_ms(void)
 {
 	return currentTime_ms;
 }
 
-//»ñÈ¡µ±Ç°Ê±¼ä£¬µ¥Î»Î¢Ãë
+//èŽ·å–å½“å‰æ—¶é—´ï¼Œå•ä½å¾®ç§’
 uint64_t MyTime_GetCurrentTime_us(void)
 {
 	return currentTime_ms * 1000 + (SysTick->LOAD - SysTick->VAL) / 72000;
@@ -36,19 +36,19 @@ void Delay_us(uint32_t nus)
 	while(MyTime_GetCurrentTime_us() < target) ;
 }
 
-//¼ÆÊ±Æ÷¿ªÊ¼
+//è®¡æ—¶å™¨å¼€å§‹
 void MyTime_TimerStart(void)
 {
 	timer_us = MyTime_GetCurrentTime_us();
 }
 
-//¼ÆÊ±Æ÷Í£Ö¹£¬·µ»ØÊ±¼ä£¬µ¥Î»Î¢Ãë
+//è®¡æ—¶å™¨åœæ­¢ï¼Œè¿”å›žæ—¶é—´ï¼Œå•ä½å¾®ç§’
 uint32_t MyTime_TimerStop(void)
 {
 	return MyTime_GetCurrentTime_us() - timer_us;
 }
 
-// SysTickÖÐ¶Ï¡£
+// SysTickä¸­æ–­ã€‚
 void SysTick_Handler(void)
 {
     currentTime_ms++;

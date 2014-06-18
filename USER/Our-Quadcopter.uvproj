@@ -297,7 +297,7 @@
               </OCR_RVCT3>
               <OCR_RVCT4>
                 <Type>1</Type>
-                <StartAddress>0x8008000</StartAddress>
+                <StartAddress>0x8000000</StartAddress>
                 <Size>0x10000</Size>
               </OCR_RVCT4>
               <OCR_RVCT5>
@@ -351,7 +351,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_MD,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\SYSTEM\sys;..\SYSTEM\usart;..\USER;..\STM32F10x_FWLib\inc;..\CORE;..\HARDWARE\led;..\SYSTEM\time;..\SYSTEM\i2c;..\HARDWARE\eMPL;.\communication;.\ErrorAndWorning;.\mpu6050;..\HARDWARE\flash;.\storage</IncludePath>
+              <IncludePath>..\SYSTEM\sys;..\SYSTEM\usart;..\USER;..\STM32F10x_FWLib\inc;..\CORE;..\HARDWARE\led;..\SYSTEM\time;..\SYSTEM\i2c;..\HARDWARE\eMPL;.\communication;.\ErrorAndWorning;.\mpu6050;..\HARDWARE\flash;.\storage;.\control;.\quaternion;.\pid;..\HARDWARE\motor</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -437,6 +437,21 @@
               <FileType>1</FileType>
               <FilePath>.\mix.c</FilePath>
             </File>
+            <File>
+              <FileName>control.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\control\control.c</FilePath>
+            </File>
+            <File>
+              <FileName>quaternion.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\quaternion\quaternion.c</FilePath>
+            </File>
+            <File>
+              <FileName>pid.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\pid\pid.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -461,6 +476,11 @@
               <FileName>flash.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\HARDWARE\flash\flash.c</FilePath>
+            </File>
+            <File>
+              <FileName>motor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\motor\motor.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -531,6 +551,11 @@
               <FileName>stm32f10x_flash.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\STM32F10x_FWLib\src\stm32f10x_flash.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f10x_tim.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\STM32F10x_FWLib\src\stm32f10x_tim.c</FilePath>
             </File>
           </Files>
         </Group>
